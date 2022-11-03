@@ -9,7 +9,7 @@ namespace MidtermPoject
         private Color Pink = Color.Fuchsia, Blue = Color.Blue, Green = Color.FromArgb(0, 192, 0), Yellow = Color.Yellow, White = Color.White, Red = Color.Red;
         private Random colorRandom = new();
         public string userChoice = "", username = "";
-        public int credentials = 0, userBet = 0, userId = 0;
+        public int credits = 0, userBet = 0, userId = 0;
         public Label result, userCredits, user;
         public Button auth;
         public static Form1 instance;
@@ -20,40 +20,40 @@ namespace MidtermPoject
             instance = this;
             auth = btnLogin;
             user = lblUsername;
-            userCredits = lblCredentials;
+            userCredits = lblCredits;
             result = lblResult;
         }
 
-        private void btnAddCredentials_Click(object sender, EventArgs e)
+        private void btnAddCredits_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = new(connectToDatabase);
             connection.Open();
-            string Query = "UPDATE users SET credentials = credentials + " + 1000 + " WHERE id = " + userId;
+            string Query = "UPDATE users SET credits = credits + " + 1000 + " WHERE id = " + userId;
             MySqlCommand cmd = new(Query, connection);
             cmd.ExecuteNonQuery();
-            credentials += 1000;
-            MessageBox.Show("Successfully Added Credentials!");
-            lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+            credits += 1000;
+            MessageBox.Show("Successfully Added Credits!");
+            lblCredits.Text = "CREDITS : " + credits.ToString();
         }
 
         private void btnBlue_Click(object sender, EventArgs e)
         {
             
-            if (credentials == 0)
+            if (credits == 0)
             {
-                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDENTIALS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDITS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MySqlConnection connection = new(connectToDatabase);
                 connection.Open();
-                string Query = "UPDATE users SET credentials = credentials - " + 50 + " WHERE id = " + userId;
+                string Query = "UPDATE users SET credits = credits - " + 50 + " WHERE id = " + userId;
                 MySqlCommand cmd = new(Query, connection);
                 cmd.ExecuteNonQuery();
-                credentials -= 50;
+                credits -= 50;
                 userBet += 50;
                 userChoice = "Blue";
-                lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                lblCredits.Text = "CREDITS : " + credits.ToString();
                 lblUserColor.BackColor = Blue;
             }
             
@@ -61,105 +61,105 @@ namespace MidtermPoject
 
         private void btnWhite_Click(object sender, EventArgs e)
         {
-            if (credentials == 0)
+            if (credits == 0)
             {
-                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDENTIALS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDITS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MySqlConnection connection = new(connectToDatabase);
                 connection.Open();
-                string Query = "UPDATE users SET credentials = credentials - " + 50 + " WHERE id = " + userId;
+                string Query = "UPDATE users SET credits = credits - " + 50 + " WHERE id = " + userId;
                 MySqlCommand cmd = new(Query, connection);
                 cmd.ExecuteNonQuery();
-                credentials -= 50;
+                credits -= 50;
                 userBet += 50;
                 userChoice = "White";
-                lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                lblCredits.Text = "CREDITS : " + credits.ToString();
                 lblUserColor.BackColor = White;
             }
         }
 
         private void btnGreen_Click(object sender, EventArgs e)
         {
-            if (credentials == 0)
+            if (credits == 0)
             {
-                 MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDENTIALS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDITS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MySqlConnection connection = new(connectToDatabase);
                 connection.Open();
-                string Query = "UPDATE users SET credentials = credentials - " + 50 + " WHERE id = " + userId;
+                string Query = "UPDATE users SET credits = credits - " + 50 + " WHERE id = " + userId;
                 MySqlCommand cmd = new(Query, connection);
                 cmd.ExecuteNonQuery();
-                credentials -= 50;
+                credits -= 50;
                 userBet += 50;
                 userChoice = "Green";
-                lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                lblCredits.Text = "CREDITS : " + credits.ToString();
                 lblUserColor.BackColor = Green;
             }
         }
 
         private void btnPink_Click(object sender, EventArgs e)
         {
-            if (credentials == 0)
+            if (credits == 0)
             {
-                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDENTIALS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDITS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MySqlConnection connection = new(connectToDatabase);
                 connection.Open();
-                string Query = "UPDATE users SET credentials = credentials - " + 50 + " WHERE id = " + userId;
+                string Query = "UPDATE users SET credits = credits - " + 50 + " WHERE id = " + userId;
                 MySqlCommand cmd = new(Query, connection);
                 cmd.ExecuteNonQuery();
-                credentials -= 50;
+                credits -= 50;
                 userBet += 50;
                 userChoice = "Pink";
-                lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                lblCredits.Text = "CREDITS : " + credits.ToString();
                 lblUserColor.BackColor = Pink;
             }
         }
 
         private void btnRed_Click(object sender, EventArgs e)
         {
-            if (credentials == 0)
+            if (credits == 0)
             {
-                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDENTIALS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDITS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MySqlConnection connection = new(connectToDatabase);
                 connection.Open();
-                string Query = "UPDATE users SET credentials = credentials - " + 50 + " WHERE id = " + userId;
+                string Query = "UPDATE users SET credits = credits - " + 50 + " WHERE id = " + userId;
                 MySqlCommand cmd = new(Query, connection);
                 cmd.ExecuteNonQuery();
-                credentials -= 50;
+                credits -= 50;
                 userBet += 50;
                 userChoice = "Red";
-                lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                lblCredits.Text = "CREDITS : " + credits.ToString();
                 lblUserColor.BackColor = Red;
             }
         }
 
         private void btnYellow_Click(object sender, EventArgs e)
         {
-            if (credentials == 0)
+            if (credits == 0)
             {
-                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDENTIALS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CLICK THE PLUS BUTTON BELOW TO ADD CREDITS! ", "Color Game", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MySqlConnection connection = new(connectToDatabase);
                 connection.Open();
-                string Query = "UPDATE users SET credentials = credentials - " + 50 + " WHERE id = " + userId;
+                string Query = "UPDATE users SET credits = credits - " + 50 + " WHERE id = " + userId;
                 MySqlCommand cmd = new(Query, connection);
                 cmd.ExecuteNonQuery();
-                credentials -= 50;
+                credits -= 50;
                 userBet += 50;
                 userChoice = "Yellow";
-                lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                lblCredits.Text = "CREDITS : " + credits.ToString();
                 lblUserColor.BackColor = Yellow;
             }  
         }
@@ -174,13 +174,13 @@ namespace MidtermPoject
                 if (userChoice == "Pink")
                 {
                     userBet *= 2;
-                    credentials += userBet;
+                    credits += userBet;
                     connection.Open();
-                    string Query = "UPDATE users SET credentials = credentials + " + userBet + " WHERE id = " + userId;
+                    string Query = "UPDATE users SET credits = credits + " + userBet + " WHERE id = " + userId;
                     MySqlCommand cmd = new(Query, connection);
                     cmd.ExecuteNonQuery();
                     userBet = 0;
-                    lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                    lblCredits.Text = "CREDITS : " + credits.ToString();
                     lblGameResult.Text = "WINNER!";
                     lblGameResult.ForeColor = White;
                 }
@@ -201,13 +201,13 @@ namespace MidtermPoject
                 if (userChoice == "Blue")
                 {
                     userBet *= 2;
-                    credentials += userBet;
+                    credits += userBet;
                     connection.Open();
-                    string Query = "UPDATE users SET credentials = credentials + " + userBet + " WHERE id = " + userId;
+                    string Query = "UPDATE users SET credits = credits + " + userBet + " WHERE id = " + userId;
                     MySqlCommand cmd = new(Query, connection);
                     cmd.ExecuteNonQuery();
                     userBet = 0;
-                    lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                    lblCredits.Text = "CREDITS : " + credits.ToString();
                     lblGameResult.Text = "WINNER!";
                     lblGameResult.ForeColor = White;
                 }
@@ -229,13 +229,13 @@ namespace MidtermPoject
                 if (userChoice == "Green")
                 {
                     userBet *= 2;
-                    credentials += userBet;
+                    credits += userBet;
                     connection.Open();
-                    string Query = "UPDATE users SET credentials = credentials + " + userBet + " WHERE id = " + userId;
+                    string Query = "UPDATE users SET credits = credits + " + userBet + " WHERE id = " + userId;
                     MySqlCommand cmd = new(Query, connection);
                     cmd.ExecuteNonQuery();
                     userBet = 0;
-                    lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                    lblCredits.Text = "CREDITS : " + credits.ToString();
                     lblGameResult.Text = "WINNER!";
                     lblGameResult.BackColor = White;
                 }
@@ -257,13 +257,13 @@ namespace MidtermPoject
                 if (userChoice == "Yellow")
                 {
                     userBet *= 2;
-                    credentials += userBet;
+                    credits += userBet;
                     connection.Open();
-                    string Query = "UPDATE users SET credentials = credentials + " + userBet + " WHERE id = " + userId;
+                    string Query = "UPDATE users SET credits = credits + " + userBet + " WHERE id = " + userId;
                     MySqlCommand cmd = new(Query, connection);
                     cmd.ExecuteNonQuery();
                     userBet = 0;
-                    lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                    lblCredits.Text = "CREDITS : " + credits.ToString();
                     lblGameResult.Text = "WINNER!";
                     lblGameResult.ForeColor = White;
                 }
@@ -284,13 +284,13 @@ namespace MidtermPoject
                 if (userChoice == "White")
                 {
                     userBet *= 2;
-                    credentials += userBet;
+                    credits += userBet;
                     connection.Open();
-                    string Query = "UPDATE users SET credentials = credentials + " + userBet + " WHERE id = " + userId;
+                    string Query = "UPDATE users SET credits = credits + " + userBet + " WHERE id = " + userId;
                     MySqlCommand cmd = new(Query, connection);
                     cmd.ExecuteNonQuery();
                     userBet = 0;
-                    lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                    lblCredits.Text = "CREDITS : " + credits.ToString();
                     lblGameResult.Text = "WINNER!";
                     lblGameResult.ForeColor = White;
                 }
@@ -311,13 +311,13 @@ namespace MidtermPoject
                 if (userChoice == "Red")
                 {
                     userBet *= 2;
-                    credentials += userBet;
+                    credits += userBet;
                     connection.Open();
-                    string Query = "UPDATE users SET credentials = credentials + " + userBet + " WHERE id = " + userId;
+                    string Query = "UPDATE users SET credits = credits + " + userBet + " WHERE id = " + userId;
                     MySqlCommand cmd = new(Query, connection);
                     cmd.ExecuteNonQuery();
                     userBet = 0;
-                    lblCredentials.Text = "CREDENTIALS : " + credentials.ToString();
+                    lblCredits.Text = "CREDITS : " + credits.ToString();
                     lblGameResult.Text = "WINNER!";
                     lblGameResult.ForeColor = White;
                 }
